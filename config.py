@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 
 import keys as KeyConfig
 import groups as GroupConfig
-
+import mouses as MouseConfig
 
 mod = KeyConfig.MOD
 keys = KeyConfig.KEYS_CONFIG #including Keys and Groups
@@ -45,6 +45,7 @@ layouts = [
     layout.Bsp(**layout_conf),
     layout.Matrix(columns=2, **layout_conf),
     layout.RatioTile(**layout_conf),
+    layout.Title(),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -75,7 +76,6 @@ screens = [
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
-                widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
@@ -92,18 +92,14 @@ screens = [
                 widget.QuickExit(),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),
 ]
 
 # Drag floating layouts.
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
-]
+mouse = MouseConfig.MOUSE_CONFIG
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
