@@ -77,6 +77,7 @@ colors = [
     '#cc6666',  # 3 - Resaltado
 ]
 
+icon_theme = "Papirus-Dark"
 
 widget_defaults = dict(
     font="sans",
@@ -85,7 +86,6 @@ widget_defaults = dict(
     background=colors[0]
 )
 
-icon_theme = "Papirus-Dark"
 
 extension_defaults = widget_defaults.copy()
 
