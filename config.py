@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 
 import keys as KeyConfig
 import groups as GroupConfig
-import mouses as MouseConfig
+import mouse as MouseConfig
 
 mod = KeyConfig.MOD
 keys = KeyConfig.KEYS_CONFIG #including Keys and Groups
@@ -43,9 +43,8 @@ layouts = [
     layout.MonadTall(**layout_conf),
     layout.MonadWide(**layout_conf),
     layout.Bsp(**layout_conf),
-    layout.Matrix(columns=2, **layout_conf),
+   # layout.Matrix(columns=2, **layout_conf),
     layout.RatioTile(**layout_conf),
-    layout.Title(),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
