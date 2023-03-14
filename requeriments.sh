@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-sudo pacman -S pamixer network-manager-applet \
+sudo pacman -S network-manager-applet \
 	picom \
 	ttf-jetbrains-mono-nerd \
 	papirus-icon-theme

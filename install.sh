@@ -26,5 +26,9 @@ else
 	cp -rv kitty $CONFIG_DIR
 fi 
 
+echo ""
+echo ""
 
+echo "run qtile test"
+qtile check
 
