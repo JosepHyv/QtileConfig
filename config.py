@@ -3,10 +3,19 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
 # my personalization
-
+import os 
+import subprocess
 import keys as KeyConfig
 import groups as GroupConfig
 import mouse as MouseConfig
+from libqtile import hook
+
+
+@hook.subscribe.startup_once
+def autostart() -> None:
+    config_path = os.path.join(os.path.expanduser("~"), "qtile", "autostart.sh")
+    subprocess.call([config_path])
+    
 
 mod = KeyConfig.MOD
 keys = KeyConfig.KEYS_CONFIG #including Keys and Groups
