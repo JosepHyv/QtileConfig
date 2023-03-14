@@ -52,9 +52,9 @@ KEYS_CONFIG = [
     Key([MOD, Alt], "space", lazy.spawncmd()),
 
     #Control de volumne 
-    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 set Master 1%+ unmute")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 set Master 1%+ unmute"))
+    Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 1%- unmute")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 1%+ unmute"))
 ]
 
 

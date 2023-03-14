@@ -14,7 +14,7 @@ from libqtile import hook
 
 @hook.subscribe.startup_once
 def autostart() -> None:
-    config_path = os.path.join(os.path.expanduser("~"), "qtile", "autostart.sh")
+    config_path = os.path.join(os.path.expanduser("~"), ".config","qtile", "autostart.sh")
     subprocess.call([config_path])
     
 
