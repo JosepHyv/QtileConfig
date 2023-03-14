@@ -1,3 +1,5 @@
 #!/usr/bin/sh
 
-sudo pacman -S amixer network-manager-applet
+sudo pacman -S pamixer network-manager-applet \
+	picom \
+	ttf-jetbrains-mono-nerd
