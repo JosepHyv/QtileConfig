@@ -1,6 +1,7 @@
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from libqtile.widget import battery
 
 # my personalization
 import os 
@@ -69,12 +70,33 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+colors = [
+    '#1d1f21',  # 0 - Fondo
+    '#282a2e',  # 1 - Barra
+    '#c5c8c6',  # 2 - Texto
+    '#cc6666',  # 3 - Resaltado
+]
+
+
 widget_defaults = dict(
     font="sans",
     fontsize=12,
     padding=3,
+    background=colors[0]
 )
+
+icon_theme = "Papirus-Dark"
+
 extension_defaults = widget_defaults.copy()
+
+battery_widget = battery.Battery(
+    energy_now_file='charge_now',
+    energy_full_file='charge_full',
+    power_now_file='current_now',
+    update_delay=5,
+    format='Bat: {char} {percent:2.0%}',
+    **widget_defaults,
+)
 
 screens = [
     Screen(
@@ -91,6 +113,7 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                battery_widget,
                # widget.TextBox("default config", name="default"),
                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
