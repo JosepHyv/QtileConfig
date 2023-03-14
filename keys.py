@@ -57,6 +57,10 @@ KEYS_CONFIG = [
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+
+    ## capturar pantalla 
+     Key([], "Print", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png $f && mv $f ~/screenshots/'")),
+    
     
 ]
 
