@@ -6,4 +6,4 @@ CONFIG_DIR="${HOME}/.config"
 
 nm-applet & 
 picom -b --config "$CONFIG_DIR/picom/picom.conf" &
-
+volumeicon &

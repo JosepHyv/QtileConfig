@@ -80,7 +80,7 @@ colors = [
 icon_theme = "Papirus-Dark"
 
 widget_defaults = dict(
-    font="sans",
+    font="Font Awesome 5 free Solid",
     fontsize=12,
     padding=3,
     background=colors[0]
