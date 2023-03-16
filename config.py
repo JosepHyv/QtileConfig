@@ -44,14 +44,14 @@ for current in groups:
     )
 
 layout_conf = {
-    'border_focus': "#a9dc76",
-    'border_width': 1,
+    'border_focus': "#5c1b6c",
+    'border_width': 2,
     'margin': 4
 }
 
 layouts = [
-    layout.Max(),
     layout.MonadTall(**layout_conf),
+    layout.Max(),
     layout.MonadWide(**layout_conf),
     layout.Bsp(**layout_conf),
     layout.Matrix(columns=2, **layout_conf),
