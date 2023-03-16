@@ -5,7 +5,7 @@
     geometry = "512x8-8+31"
     indicate_hidden = yes
     shrink = no
-    transparency = 20
+    transparency = 10
     blur = 10
     notification_height = 0
     separator_height = 0

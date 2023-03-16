@@ -104,17 +104,22 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.Net(format="{down} ↓↑ {up}"),
+                widget.TextBox("||"),
+                widget.CPU(),
+                widget.TextBox("||"),
                # widget.TextBox("default config", name="default"),
                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
+                widget.TextBox("||"),
                 widget.Clock(format="%H:%M  %a-%d"),
             ],
             30,
             background=["#111111", "#222222"],
             #margin=[10,10,0,10],
-            opacity=0.9,
+            opacity=0.6,
             border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
