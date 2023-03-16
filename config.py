@@ -56,7 +56,6 @@ layouts = [
     layout.Max(),
     layout.MonadWide(**layout_conf),
     layout.Bsp(**layout_conf),
-    layout.Matrix(columns=2, **layout_conf),
     layout.RatioTile(**layout_conf),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Max(),
