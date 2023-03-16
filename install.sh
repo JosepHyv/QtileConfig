@@ -26,6 +26,14 @@ else
 	cp -rv kitty $CONFIG_DIR
 fi 
 
+echo "Coppyng dunst config"
+if [ -d "$CONFIG_DIR/dunst" ]; then 
+	cp -rv dunst/* "$CONFIG_DIR/dunst/."	
+else 
+	cp -rv dunst $CONFIG_DIR
+fi 
+
+
 echo ""
 echo ""
 
