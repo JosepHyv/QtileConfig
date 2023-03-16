@@ -44,7 +44,7 @@ for current in groups:
     )
 
 layout_conf = {
-    'border_focus': "#5c1b6c",
+    'border_focus': "#a524e2",
     'border_normal' : "#5a565b",
     'border_ratio' : 1.2,
     'border_width': 2,
@@ -81,7 +81,7 @@ colors = [
 
 
 widget_defaults = dict(
-    font="Font JetBrains 5 free Solid",
+    font="Nerd 5 free Solid",
     fontsize=12,
     padding=3,
     background=colors[0]

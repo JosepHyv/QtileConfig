@@ -11,3 +11,4 @@ cbatticon -u 5 &
 blueman-applet &
 # start kwallet for auth
 /usr/lib/pam_kwallet_init &
+xfce4-clipman &
