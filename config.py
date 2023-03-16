@@ -77,10 +77,9 @@ colors = [
     '#cc6666',  # 3 - Resaltado
 ]
 
-icon_theme = "Papirus-Dark"
 
 widget_defaults = dict(
-    font="Font Awesome 5 free Solid",
+    font="Font JetBrains 5 free Solid",
     fontsize=12,
     padding=3,
     background=colors[0]
@@ -88,15 +87,6 @@ widget_defaults = dict(
 
 
 extension_defaults = widget_defaults.copy()
-
-battery_widget = battery.Battery(
-    energy_now_file='charge_now',
-    energy_full_file='charge_full',
-    power_now_file='current_now',
-    update_delay=5,
-    format='Bat: {char} {percent:2.0%}',
-    **widget_defaults,
-)
 
 screens = [
     Screen(
@@ -113,20 +103,18 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                battery_widget,
                # widget.TextBox("default config", name="default"),
                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.Clock(format="%H:%M %p %Y-%mmm %a"),
             ],
             30,
             background=["#111111", "#222222"],
             #margin=[10,10,0,10],
             opacity=0.9,
-            #border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),

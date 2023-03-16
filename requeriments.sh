@@ -6,6 +6,7 @@ sudo pacman -S network-manager-applet \
 	papirus-icon-theme \
 	brightnessctl \
 	volumeicon \
-	dunst
+	dunst \
+	cbatticon
 	
 	
