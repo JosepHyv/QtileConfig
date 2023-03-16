@@ -9,6 +9,7 @@ import subprocess
 import keys as KeyConfig
 import groups as GroupConfig
 import mouse as MouseConfig
+import wallpaper as wp
 from libqtile import hook
 
 
@@ -43,17 +44,17 @@ for current in groups:
     )
 
 layout_conf = {
-    'border_focus': "#a9dc76",
-    'border_width': 1,
+    'border_focus': "#5c1b6c",
+    'border_width': 2,
     'margin': 4
 }
 
 layouts = [
-    layout.Max(),
     layout.MonadTall(**layout_conf),
+    layout.Max(),
     layout.MonadWide(**layout_conf),
     layout.Bsp(**layout_conf),
-   # layout.Matrix(columns=2, **layout_conf),
+    layout.Matrix(columns=2, **layout_conf),
     layout.RatioTile(**layout_conf),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Max(),
@@ -77,10 +78,9 @@ colors = [
     '#cc6666',  # 3 - Resaltado
 ]
 
-icon_theme = "Papirus-Dark"
 
 widget_defaults = dict(
-    font="Font Awesome 5 free Solid",
+    font="Font JetBrains 5 free Solid",
     fontsize=12,
     padding=3,
     background=colors[0]
@@ -89,18 +89,9 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
-battery_widget = battery.Battery(
-    energy_now_file='charge_now',
-    energy_full_file='charge_full',
-    power_now_file='current_now',
-    update_delay=5,
-    format='Bat: {char} {percent:2.0%}',
-    **widget_defaults,
-)
-
 screens = [
     Screen(
-        wallpaper='/home/josephy/.config/qtile/fondos/arch-liinux-4k-t0.jpg',
+        wallpaper=wp.today_wall(),#'/home/josephy/.config/qtile/fondos/arch-liinux-4k-t0.jpg',
         wallpaper_mode="stretch",
         top=bar.Bar(
             [
@@ -113,21 +104,21 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                battery_widget,
+                widget.Net(format="{down} ↓↑ {up}"),
+                widget.TextBox("||"),
+                widget.CPU(),
+                widget.TextBox("||"),
                # widget.TextBox("default config", name="default"),
                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.TextBox("||"),
+                widget.Clock(format="%H:%M  %a-%d"),
             ],
-            30,
+            32,
             background=["#111111", "#222222"],
-            #margin=[10,10,0,10],
-            opacity=0.9,
-            #border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            opacity=0.7,
         ),
     ),
 ]

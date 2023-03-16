@@ -42,7 +42,7 @@ KEYS_CONFIG = [
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
     Key([MOD], "w", lazy.window.kill(), desc="Mata ventana actual"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([MOD], "l", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([MOD, Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([Alt], "space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
 
@@ -57,6 +57,10 @@ KEYS_CONFIG = [
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+
+    ## capturar pantalla 
+     Key([], "Print", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png $f && mv $f ~/screenshots/'")),
+    
     
 ]
 

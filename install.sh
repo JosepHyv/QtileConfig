@@ -6,7 +6,7 @@
 
 # make instalation rutine 
 
-CONFIG_DIR="${HOME}/.config/"
+CONFIG_DIR="${HOME}/.config"
 
 
 cp -rv  *.py autostart.sh fondos "$CONFIG_DIR/qtile/."
@@ -25,6 +25,21 @@ if [ -d "$CONFIG_DIR/kitty" ]; then
 else 
 	cp -rv kitty $CONFIG_DIR
 fi 
+
+echo "Coppyng dunst config"
+if [ -d "$CONFIG_DIR/dunst" ]; then 
+	cp -rv dunst/* "$CONFIG_DIR/dunst/."	
+else 
+	cp -rv dunst $CONFIG_DIR
+fi 
+
+echo "Coppyng rofi config"
+if [ -d "$CONFIG_DIR/rofi" ]; then 
+	cp -rv rofi/* "$CONFIG_DIR/rofi/."	
+else 
+	cp -rv rofi $CONFIG_DIR
+fi 
+
 
 echo ""
 echo ""

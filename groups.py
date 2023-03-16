@@ -8,6 +8,7 @@ NAMES = [
     'Auronix',
     'DBas',
     'Esc',
+    'Spotify'
 ]
 
 GROUPS = [Group(current) for current in NAMES]

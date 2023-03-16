@@ -5,6 +5,9 @@ sudo pacman -S network-manager-applet \
 	ttf-jetbrains-mono-nerd \
 	papirus-icon-theme \
 	brightnessctl \
-	volumeicon
+	volumeicon \
+	dunst \
+	cbatticon \
+	blueman
 	
 	
