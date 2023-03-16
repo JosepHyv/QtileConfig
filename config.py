@@ -96,7 +96,7 @@ screens = [
         wallpaper_mode="stretch",
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
+                widget.TextBox(" "),
                 widget.GroupBox(),
                 widget.WindowName(),
                 widget.Chord(
@@ -116,6 +116,9 @@ screens = [
                 widget.Systray(),
                 widget.TextBox("||"),
                 widget.Clock(format="%H:%M  %a-%d"),
+                widget.TextBox("||"),
+                widget.CurrentLayout(),
+                widget.TextBox("  "),
             ],
             32,
             background=["#111111", "#222222"],
