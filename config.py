@@ -45,6 +45,8 @@ for current in groups:
 
 layout_conf = {
     'border_focus': "#5c1b6c",
+    'border_normal' : "#5a565b",
+    'border_ratio' : 1.2,
     'border_width': 2,
     'margin': 4
 }
