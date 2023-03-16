@@ -54,7 +54,7 @@ layouts = [
     layout.MonadTall(**layout_conf),
     layout.MonadWide(**layout_conf),
     layout.Bsp(**layout_conf),
-   # layout.Matrix(columns=2, **layout_conf),
+    layout.Matrix(columns=2, **layout_conf),
     layout.RatioTile(**layout_conf),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Max(),
@@ -116,12 +116,9 @@ screens = [
                 widget.TextBox("||"),
                 widget.Clock(format="%H:%M  %a-%d"),
             ],
-            30,
+            32,
             background=["#111111", "#222222"],
-            #margin=[10,10,0,10],
-            opacity=0.6,
-            border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            opacity=0.7,
         ),
     ),
 ]

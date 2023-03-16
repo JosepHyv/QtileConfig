@@ -15,7 +15,7 @@
     frame_color = "#263238"
     separator_color = #b0bec5
     sort = yes
-    font = JetBrains Nerd Font 14
+    font = FiraCode Nerd Font 14
     vertical_alignment = top
     stack_duplicates = true
     hide_duplicate_count = true 

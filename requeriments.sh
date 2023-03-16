@@ -7,6 +7,7 @@ sudo pacman -S network-manager-applet \
 	brightnessctl \
 	volumeicon \
 	dunst \
-	cbatticon
+	cbatticon \
+	blueman
 	
 	

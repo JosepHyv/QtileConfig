@@ -8,3 +8,5 @@ nm-applet &
 picom -b --config "$CONFIG_DIR/picom/picom.conf" &
 volumeicon &
 cbatticon -u 5 &
+blueman-applet &
+
