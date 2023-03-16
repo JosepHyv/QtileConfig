@@ -9,6 +9,7 @@ import subprocess
 import keys as KeyConfig
 import groups as GroupConfig
 import mouse as MouseConfig
+import wallpaper as wp
 from libqtile import hook
 
 
@@ -90,7 +91,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper='/home/josephy/.config/qtile/fondos/arch-liinux-4k-t0.jpg',
+        wallpaper=wp.today_wall(),#'/home/josephy/.config/qtile/fondos/arch-liinux-4k-t0.jpg',
         wallpaper_mode="stretch",
         top=bar.Bar(
             [
