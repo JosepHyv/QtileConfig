@@ -1,6 +1,5 @@
-from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
-from libqtile.widget import battery
+from libqtile import bar,widget
+from libqtile.config import Screen
 
 # my personalization
 import os 
@@ -19,7 +18,6 @@ def autostart() -> None:
     subprocess.call([config_path])
     
 
-mod = KeyConfig.MOD
 keys = KeyConfig.KEYS_CONFIG #including Keys and Groups
 layouts = LayoutsConfig.LAYOUTS
 floating_layout = LayoutsConfig.FLOATING
@@ -81,14 +79,9 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = True
-
-
 auto_fullscreen = True
 focus_on_window_activation = "urgent"
 reconfigure_screens = True
-
 auto_minimize = True
-
 wl_input_rules = None
-
 wmname = "LG3D"

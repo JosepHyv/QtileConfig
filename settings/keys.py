@@ -3,7 +3,6 @@ from libqtile.lazy import lazy
 
 # Mi config 
 
-import groups as GroupConfig
 
 MOD = "mod4"
 Alt = "mod1"
@@ -65,20 +64,3 @@ KEYS_CONFIG = [
 ]
 
 
-for current in GroupConfig.GROUPS:
-    KEYS_CONFIG.extend(
-                [
-                    Key(
-                        [MOD], 
-                        GroupConfig.position(current.name), 
-                        lazy.group[current.name].toscreen(),
-                        desc="hack para cambiar al grupo dado por posiciones entre 1 y len(grupos)"
-                    ),
-                    Key(
-                        [MOD, "shift"], 
-                        GroupConfig.position(current.name), 
-                        lazy.window.togroup(current.name, switch_group=True),
-                        desc="hack para mover una ventana al grupo en el rango de 1 y len(grupos)"
-                    )
-                ]
-            )
