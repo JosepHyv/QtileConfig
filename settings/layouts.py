@@ -6,6 +6,7 @@ LAYOUT_CONFIG = {
     'border_normal' : "#5a565b",
     'border_ratio' : 1.2,
     'border_width': 2,
+    "border_rounding" : 10,
     'margin': 4
 }
 
