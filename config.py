@@ -6,10 +6,9 @@ from libqtile.widget import battery
 # my personalization
 import os 
 import subprocess
-import keys as KeyConfig
-import groups as GroupConfig
-import mouse as MouseConfig
-import wallpaper as wp
+import settings.keys as KeyConfig
+import settings.mouse as MouseConfig
+import settings.wallpaper as wp
 from libqtile import hook
 
 
@@ -23,25 +22,7 @@ mod = KeyConfig.MOD
 keys = KeyConfig.KEYS_CONFIG #including Keys and Groups
 
 
-groups = GroupConfig.GROUPS
 
-for current in groups:
-    keys.extend(
-        [
-            Key(
-                [mod], 
-                GroupConfig.position(current.name), 
-                lazy.group[current.name].toscreen(),
-                desc="hack para cambiar al grupo dado por posiciones entre 1 y len(grupos)"
-            ),
-            Key(
-                [mod, "shift"], 
-                GroupConfig.position(current.name), 
-                lazy.window.togroup(current.name, switch_group=True),
-                desc="hack para mover una ventana al grupo en el rango de 1 y len(grupos)"
-            )
-        ]
-    )
 
 layout_conf = {
     'border_focus': "#a524e2",

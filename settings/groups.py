@@ -1,6 +1,5 @@
 from libqtile.config import Group
 
-
 NAMES = [
     'Web',
     'Term',
@@ -20,3 +19,6 @@ def position(name : str ) -> str:
     if name.lower() in lower_names:
         position_ans = str(lower_names.index(name.lower()) + 1 )
     return position_ans
+
+
+ 

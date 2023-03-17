@@ -9,7 +9,7 @@
 CONFIG_DIR="${HOME}/.config"
 
 
-cp -rv  *.py autostart.sh fondos "$CONFIG_DIR/qtile/."
+cp -rv  config.py autostart.sh fondos settings "$CONFIG_DIR/qtile/."
 
 echo "Copying picom config"
 if [ -d "$CONFIG_DIR/picom" ]; then 
