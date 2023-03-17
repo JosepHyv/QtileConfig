@@ -8,7 +8,7 @@ MOD = "mod4"
 Alt = "mod1"
 TERMINAL = "kitty"
 
-KEYS_CONFIG = [
+keys = [
     #cambio entre ventanas (solo el foco de ventanas)
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),

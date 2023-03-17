@@ -2,14 +2,18 @@ from libqtile import bar,widget
 from libqtile.config import Screen
 
 # my personalization
+# extra libs for autostart
 import os 
 import subprocess
-import settings.keys as KeyConfig
-import settings.mouse as MouseConfig
-import settings.layouts as LayoutsConfig 
-import settings.themes as ThemesConfig
-import settings.wallpaper as wp
 from libqtile import hook
+
+# main keywords config 
+from settings.keys import keys
+from settings.mouse import mouse
+from settings.layouts import layouts, floating_layout
+from settings.groups import groups
+from settings.widgets import widget_defaults, extension_defaults
+import settings.wallpaper as wp
 
 
 @hook.subscribe.startup_once
@@ -18,23 +22,7 @@ def autostart() -> None:
     subprocess.call([config_path])
     
 
-keys = KeyConfig.KEYS_CONFIG #including Keys and Groups
-layouts = LayoutsConfig.LAYOUTS
-floating_layout = LayoutsConfig.FLOATING
-colors = ThemesConfig.colors
-mouse = MouseConfig.MOUSE_CONFIG # Drag floating layouts.
 
-
-
-widget_defaults = dict(
-    font="Nerd 5 free Solid",
-    fontsize=12,
-    padding=3,
-    background=colors[0]
-)
-
-
-extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
