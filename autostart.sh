@@ -9,4 +9,6 @@ picom -b --config "$CONFIG_DIR/picom/picom.conf" &
 volumeicon &
 cbatticon -u 5 &
 blueman-applet &
-
+# start kwallet for auth
+/usr/lib/pam_kwallet_init &
+xfce4-clipman &

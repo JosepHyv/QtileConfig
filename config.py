@@ -44,18 +44,19 @@ for current in groups:
     )
 
 layout_conf = {
-    'border_focus': "#5c1b6c",
+    'border_focus': "#a524e2",
+    'border_normal' : "#5a565b",
+    'border_ratio' : 1.2,
     'border_width': 2,
     'margin': 4
 }
 
 layouts = [
-    layout.MonadTall(**layout_conf),
-    layout.Max(),
-    layout.MonadWide(**layout_conf),
     layout.Bsp(**layout_conf),
-    layout.Matrix(columns=2, **layout_conf),
-    layout.RatioTile(**layout_conf),
+#    layout.MonadTall(**layout_conf),
+    layout.Max(),
+ #   layout.MonadWide(**layout_conf),
+ #   layout.RatioTile(**layout_conf),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -80,7 +81,7 @@ colors = [
 
 
 widget_defaults = dict(
-    font="Font JetBrains 5 free Solid",
+    font="Nerd 5 free Solid",
     fontsize=12,
     padding=3,
     background=colors[0]
@@ -95,7 +96,7 @@ screens = [
         wallpaper_mode="stretch",
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
+                widget.TextBox(" "),
                 widget.GroupBox(),
                 widget.WindowName(),
                 widget.Chord(
@@ -115,6 +116,9 @@ screens = [
                 widget.Systray(),
                 widget.TextBox("||"),
                 widget.Clock(format="%H:%M  %a-%d"),
+                widget.TextBox("||"),
+                widget.CurrentLayout(),
+                widget.TextBox("  "),
             ],
             32,
             background=["#111111", "#222222"],
@@ -130,7 +134,8 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = False
+cursor_warp = True
+
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
@@ -143,23 +148,13 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = "urgent"
 reconfigure_screens = True
 
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
 
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
