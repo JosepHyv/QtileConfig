@@ -41,7 +41,7 @@ keys = [
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
     Key([MOD], "w", lazy.window.kill(), desc="Mata ventana actual"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([MOD, Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([MOD, "control", Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([Alt], "space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
 
@@ -59,6 +59,7 @@ keys = [
 
     ## capturar pantalla 
      Key([], "Print", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png $f && mv $f ~/screenshots/'")),
+     Key([MOD, Alt], "l", lazy.spawn("xfce4-screensaver-command -l")),
     
     
 ]
