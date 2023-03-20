@@ -1,9 +1,9 @@
 from libqtile.config import Click, Drag
 from libqtile.lazy import lazy
 
-import keys as KeysConfig 
+from .keys import MOD 
 
-mod = KeysConfig.MOD
+mod = MOD
 
 MOUSE_CONFIG = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),

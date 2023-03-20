@@ -3,7 +3,6 @@ from libqtile.lazy import lazy
 
 # Mi config 
 
-import groups as GroupConfig
 
 MOD = "mod4"
 Alt = "mod1"
