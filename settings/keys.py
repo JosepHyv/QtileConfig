@@ -8,7 +8,7 @@ MOD = "mod4"
 Alt = "mod1"
 TERMINAL = "kitty"
 
-KEYS_CONFIG = [
+keys = [
     #cambio entre ventanas (solo el foco de ventanas)
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -41,7 +41,7 @@ KEYS_CONFIG = [
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
     Key([MOD], "w", lazy.window.kill(), desc="Mata ventana actual"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([MOD, Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([MOD, "control", Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([Alt], "space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
 
@@ -59,7 +59,15 @@ KEYS_CONFIG = [
 
     ## capturar pantalla 
      Key([], "Print", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png $f && mv $f ~/screenshots/'")),
-    
+     Key([MOD, Alt], "l", lazy.spawn("xfce4-screensaver-command -l")),
+
+     ## ventanas flotantes 
+     Key([MOD, "shift"], 'f', lazy.window.toggle_floating()),
+
+     ## Mover ventanas (rotando)
+     Key([MOD, "shift"], "space", lazy.layout.rotate()),
+
+    Key([MOD, "shift"], "s",lazy.layout.toggle_split()),
     
 ]
 

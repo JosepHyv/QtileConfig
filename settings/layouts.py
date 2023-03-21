@@ -6,11 +6,12 @@ LAYOUT_CONFIG = {
     'border_normal' : "#5a565b",
     'border_ratio' : 1.2,
     'border_width': 2,
+    "border_rounding" : 10,
     'margin': 4
 }
 
 
-LAYOUTS = [
+layouts = [
     layout.Bsp(**LAYOUT_CONFIG),
     layout.Max(),
     ### if i neeed i can unmark this amazing layouts
@@ -20,7 +21,7 @@ LAYOUTS = [
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
 ]
 
-FLOATING = layout.Floating(
+floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,

@@ -1,4 +1,4 @@
-from .keys import KEYS_CONFIG, MOD
+from .keys import keys, MOD
 from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 
@@ -9,11 +9,10 @@ NAMES = [
     'Auronix',
     'DBas',
     'Esc',
-    'Spotify', 
-    "   ", "   "
+    'Spotify',
 ]
 
-GROUPS = [Group(current) for current in NAMES]
+groups = [Group(current) for current in NAMES]
 
 def position(name : str ) -> str:
     global NAMES
@@ -23,8 +22,8 @@ def position(name : str ) -> str:
         position_ans = str(lower_names.index(name.lower()) + 1 )
     return position_ans
 
-for current in GROUPS:
-    KEYS_CONFIG.extend(
+for current in groups:
+    keys.extend(
                 [
                     Key(
                         [MOD], 
