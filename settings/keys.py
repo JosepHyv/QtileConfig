@@ -60,7 +60,14 @@ keys = [
     ## capturar pantalla 
      Key([], "Print", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png $f && mv $f ~/screenshots/'")),
      Key([MOD, Alt], "l", lazy.spawn("xfce4-screensaver-command -l")),
-    
+
+     ## ventanas flotantes 
+     Key([MOD, "shift"], 'f', lazy.window.toggle_floating()),
+
+     ## Mover ventanas (rotando)
+     Key([MOD, "shift"], "space", lazy.layout.rotate()),
+
+    Key([MOD, "shift"], "s",lazy.layout.toggle_split()),
     
 ]
 
