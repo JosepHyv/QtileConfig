@@ -14,6 +14,7 @@ from settings.mouse import mouse
 from settings.layouts import layouts, floating_layout
 from settings.groups import groups
 from settings.widgets import widget_defaults, extension_defaults
+from settings.screens import screens
 import settings.wallpaper as wp
 
 
@@ -25,42 +26,7 @@ def autostart() -> None:
 
 
 
-screens = [
-    Screen(
-        wallpaper=wp.today_wall(),
-        wallpaper_mode="stretch",
-        top=bar.Bar(
-            [
-                widget.TextBox(" "),
-                widget.GroupBox(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Net(format="{down} ↓↑ {up}"),
-                widget.TextBox("||"),
-                widget.CPU(),
-                widget.TextBox("||"),
-               # widget.TextBox("default config", name="default"),
-               # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.TextBox("||"),
-                widget.Clock(format="%H:%M  %a-%d"),
-                widget.TextBox("||"),
-                widget.CurrentLayout(),
-                widget.TextBox("  "),
-            ],
-            32,
-            background=["#111111", "#222222"],
-            opacity=0.7,
-        ),
-    ),
-]
+
 
 
 dgroups_key_binder = None
