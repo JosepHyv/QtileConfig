@@ -57,13 +57,3 @@ screensaver = {
     "lock_delay": 0,
     "mode": "blank-only",
 }
-lazy.spawn("xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/xfce4-screensaver -t bool -s false")
-for key, value in screensaver.items():
-    lazy.spawn(f"xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/xfce4-screensaver/{key} -t bool -s {value}")
-
-# Configuramos Qtile para que use xfce4-screensaver
-# Desactivamos el salvapantallas de X11 y usamos el de XFCE
-lazy.spawn("xset s off")
-lazy.spawn("xset s noblank")
-lazy.spawn("xset -dpms")
-lazy.spawn("xfce4-screensaver &")
