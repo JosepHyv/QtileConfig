@@ -42,18 +42,18 @@ wl_input_rules = None
 wmname = "LG3D"
 
 
-@hook.subscribe.screen_change
-def unlock_on_resume(qtile, ev):
-    if ev.state == "off":
-        qtile.cmd_spawn("xfce4-screensaver-command -d")
+# @hook.subscribe.screen_change
+# def unlock_on_resume(qtile, ev):
+    # if ev.state == "off":
+        # qtile.cmd_spawn("xfce4-screensaver-command -d")
 
 # Configuramos el salvapantallas para que no se inicie automáticamente
 screensaver = {
     "idle_activation_enabled": False,
-    "lock_on_suspend": False,
+    "lock_on_suspend": True,
     "lock_on_lid": False,
     "lock_on_logout": False,
-    "lock_after_blank_screen": False,
+    "lock_after_blank_screen": True,
     "lock_delay": 0,
     "mode": "blank-only",
 }

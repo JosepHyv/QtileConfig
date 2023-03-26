@@ -9,10 +9,10 @@ sudo pacman -S network-manager-applet \
 	dunst \
 	cbatticon \
 	blueman \
-	xfce4-clipman-plugin \
 	pulseaudio-bluetooth #this is only for support to bluetooth audio devices
 	
 	
 
 echo "installing AUR packages"
-yay -S picom-ibhagwan-git
+yay -S picom-ibhagwan-git \
+	clipit

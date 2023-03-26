@@ -64,7 +64,7 @@ keys = [
      Key([MOD, Alt], "Print", lazy.spawn("spectacle -b --region")),      
      Key(['control'], "Print", lazy.spawn("spectacle -b --activewindow --copy-image")),       
      Key([MOD, 'control'], "Print", lazy.spawn("spectacle -b --activewindow")),       
-     Key([MOD, Alt], "l", lazy.spawn("xfce4-screensaver-command -l")),
+     Key([MOD, Alt], "l", lazy.spawn("qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock")),
 
      ## ventanas flotantes 
      Key([MOD, "shift"], 'f', lazy.window.toggle_floating()),
