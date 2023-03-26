@@ -58,8 +58,13 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 
     ## capturar pantalla 
-     Key([], "Print", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png $f && mv $f ~/screenshots/'")),
-     Key([MOD, Alt], "l", lazy.spawn("xfce4-screensaver-command -l")),
+     Key([], "Print", lazy.spawn("spectacle -b --copy-image --fullscreen")),
+     Key([MOD], "Print", lazy.spawn("spectacle -b --fullscreen")),
+     Key([Alt], "Print", lazy.spawn("spectacle -b --region --copy-image")),
+     Key([MOD, Alt], "Print", lazy.spawn("spectacle -b --region")),      
+     Key(['control'], "Print", lazy.spawn("spectacle -b --activewindow --copy-image")),       
+     Key([MOD, 'control'], "Print", lazy.spawn("spectacle -b --activewindow")),       
+     Key([MOD, Alt], "l", lazy.spawn("qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock")),
 
      ## ventanas flotantes 
      Key([MOD, "shift"], 'f', lazy.window.toggle_floating()),

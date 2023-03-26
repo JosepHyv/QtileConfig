@@ -14,6 +14,7 @@ from settings.mouse import mouse
 from settings.layouts import layouts, floating_layout
 from settings.groups import groups
 from settings.widgets import widget_defaults, extension_defaults
+from settings.screens import screens
 import settings.wallpaper as wp
 
 
@@ -25,42 +26,7 @@ def autostart() -> None:
 
 
 
-screens = [
-    Screen(
-        wallpaper=wp.today_wall(),
-        wallpaper_mode="stretch",
-        top=bar.Bar(
-            [
-                widget.TextBox(" "),
-                widget.GroupBox(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Net(format="{down} ↓↑ {up}"),
-                widget.TextBox("||"),
-                widget.CPU(),
-                widget.TextBox("||"),
-               # widget.TextBox("default config", name="default"),
-               # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.TextBox("||"),
-                widget.Clock(format="%H:%M  %a-%d"),
-                widget.TextBox("||"),
-                widget.CurrentLayout(),
-                widget.TextBox("  "),
-            ],
-            32,
-            background=["#111111", "#222222"],
-            opacity=0.7,
-        ),
-    ),
-]
+
 
 
 dgroups_key_binder = None
@@ -76,28 +42,18 @@ wl_input_rules = None
 wmname = "LG3D"
 
 
-@hook.subscribe.screen_change
-def unlock_on_resume(qtile, ev):
-    if ev.state == "off":
-        qtile.cmd_spawn("xfce4-screensaver-command -d")
+# @hook.subscribe.screen_change
+# def unlock_on_resume(qtile, ev):
+    # if ev.state == "off":
+        # qtile.cmd_spawn("xfce4-screensaver-command -d")
 
 # Configuramos el salvapantallas para que no se inicie automáticamente
 screensaver = {
     "idle_activation_enabled": False,
-    "lock_on_suspend": False,
+    "lock_on_suspend": True,
     "lock_on_lid": False,
     "lock_on_logout": False,
-    "lock_after_blank_screen": False,
+    "lock_after_blank_screen": True,
     "lock_delay": 0,
     "mode": "blank-only",
 }
-lazy.spawn("xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/xfce4-screensaver -t bool -s false")
-for key, value in screensaver.items():
-    lazy.spawn(f"xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/xfce4-screensaver/{key} -t bool -s {value}")
-
-# Configuramos Qtile para que use xfce4-screensaver
-# Desactivamos el salvapantallas de X11 y usamos el de XFCE
-lazy.spawn("xset s off")
-lazy.spawn("xset s noblank")
-lazy.spawn("xset -dpms")
-lazy.spawn("xfce4-screensaver &")
