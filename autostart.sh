@@ -12,4 +12,4 @@ blueman-applet &
 # start kwallet for auth
 /usr/lib/pam_kwallet_init &
 clipit &
-ksmserver --no-lockscreen &
+ksmserver  &
