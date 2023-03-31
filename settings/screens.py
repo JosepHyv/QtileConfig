@@ -31,6 +31,8 @@ screens = [
                 widget.TextBox("||"),
                 widget.CPU(),
                 widget.TextBox("||"),
+                widget.KeyboardLayout(configured_keyboards=['us','es']),
+                widget.TextBox("||"),
                 widget.Systray(),
                 widget.TextBox("||"),
                 widget.Clock(format="%H:%M  %a-%d"),

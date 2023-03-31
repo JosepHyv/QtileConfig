@@ -72,7 +72,8 @@ keys = [
      ## Mover ventanas (rotando)
      Key([MOD, "shift"], "space", lazy.layout.rotate()),
 
-    Key([MOD, "shift"], "s",lazy.layout.toggle_split()),
+     Key([MOD, "shift"], "s",lazy.layout.toggle_split()),
+     Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard())
     
 ]
 
