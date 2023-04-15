@@ -1,7 +1,7 @@
 from libqtile import bar 
 from libqtile import widget
 from libqtile.config import Screen
-from .wallpaper import today_wall
+from .wallpaper import today_wall, select_wall
 import subprocess 
 
 MY_BAR_CONFIG = {
@@ -14,7 +14,7 @@ def gen_bar(widgets, bar_configs):
 
 screens = [
     Screen(
-        wallpaper=today_wall(),
+        wallpaper=select_wall('darkest-hour1.jpg'),
         wallpaper_mode="stretch",
         top=bar.Bar(
             [
