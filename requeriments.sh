@@ -10,13 +10,13 @@ sudo pacman -Syu network-manager-applet \
 	cbatticon \
 	blueman \
 	pulseaudio-bluetooth \
-	light-locker lightdm-webkit2-greeter 
+	light-locker lightdm-webkit2-greeter \
+	polkit-gnome
 	
 	
 echo "installing AUR packages"
 yay -S picom-ibhagwan-git \
-	clipit \
-	xfce-polkit
+	clipit 
 
 
 # pulse audio bluetooth this is only for support to bluetooth audio devices
