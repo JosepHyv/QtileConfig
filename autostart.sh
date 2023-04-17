@@ -12,6 +12,7 @@ blueman-applet &
 # start kwallet for auth
 /usr/lib/pam_kwallet_init &
 clipit &
+/usr/lib/xfce-polkit/xfce-polkit & 
 /usr/bin/kdeconnect-indicator & 
 light-locker & 
 
