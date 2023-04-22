@@ -73,8 +73,15 @@ keys = [
      Key([MOD, "shift"], "space", lazy.layout.rotate()),
 
      Key([MOD, "shift"], "s",lazy.layout.toggle_split()),
-     Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard())
-    
+     Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard()),
+
+     ## My main apps workflow
+     Key([MOD], "m", lazy.spawn('min')),
+     Key([MOD], 'e', lazy.spawn('thunar')),
+     Key([MOD], 't', lazy.spawn('com.todoist.Todoist')), 
+     Key([MOD], 's', lazy.spawn('slack')),  
+     Key([MOD], 'g', lazy.spawn('google-chrome-stable')),  
+     Key([MOD], "x", lazy.spawn('chromium')),
 ]
 
 

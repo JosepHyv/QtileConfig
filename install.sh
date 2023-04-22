@@ -8,8 +8,21 @@
 
 CONFIG_DIR="${HOME}/.config"
 
+LOCAL_DIR=`pwd`
+
+UNDESEBALE_DIRS=("$LOCAL_DIR/settings/.mypy_cache", "$LOCAL_DIR/settings/__pycache__")
+
+if ! [[ -d $UNDESEABLE_DIRS[0] ]]; then 
+	rm -rvf $UNDESEABLE_DIRS[0]
+fi 
+if [ -d $UNDESEBALE_DIRS[1] ]; then
+	echo Eliminando el el directorio $UNDESEBALE_DIRS[1] 
+	rm -rvf $UNDESEBALE_DIRS[1]
+fi 
 
 cp -rv  config.py autostart.sh fondos settings "$CONFIG_DIR/qtile/."
+
+
 
 echo "Copying picom config"
 if [ -d "$CONFIG_DIR/picom" ]; then 
