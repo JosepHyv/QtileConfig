@@ -1,49 +1,24 @@
-from libqtile import bar 
-from libqtile import widget
+import subprocess 
+from libqtile import bar
 from libqtile.config import Screen
 from .wallpaper import today_wall, select_wall
-import subprocess 
+from .widgets import PRIMARY_WIDGETS, SECONDARY_WIDGETS
 
-MY_BAR_CONFIG = {
-    "background" : ["#111111", "#222222"],
-    "opacity" : 0.7,
-}
 
-def gen_bar(widgets, bar_configs):
-    return bar.Bar(widgets,30, **bar_configs)
+
+def gen_bar(_widgets):
+    return bar.Bar(
+        _widgets,
+        30,
+        background=["#111111", "#222222"],
+        opacity=0.7
+    )
 
 screens = [
     Screen(
         wallpaper=select_wall('darkest-hour1.jpg'),
         wallpaper_mode="stretch",
-        top=bar.Bar(
-            [
-                widget.TextBox(" "),
-                widget.GroupBox(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Net(format="{down} ↓↑ {up}"),
-                widget.TextBox("||"),
-                widget.CPU(),
-                widget.TextBox("||"),
-                widget.KeyboardLayout(configured_keyboards=['us','es']),
-                widget.TextBox("||"),
-                widget.Systray(),
-                widget.TextBox("||"),
-                widget.Clock(format="%H:%M  %a-%d"),
-                widget.TextBox("||"),
-                widget.CurrentLayout(),
-                widget.TextBox("  "),
-            ],
-            32,
-            background=["#111111", "#222222"],
-            opacity=0.7,
-        ),
+        top=gen_bar(PRIMARY_WIDGETS)
     ),
 ]
 
@@ -66,7 +41,8 @@ if connected_screens > 1:
     for _ in range (1, connected_screens):
         screens.append(Screen(
                 wallpaper=today_wall(),
-                wallpaper_mode="stretch"))
+                wallpaper_mode="stretch",
+                top=gen_bar(SECONDARY_WIDGETS)))
 
     screen_config = "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --mode 1366x768 --pos 0x0 --rotate normal"
     subprocess.run(screen_config, shell=True)
