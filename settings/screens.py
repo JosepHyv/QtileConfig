@@ -6,10 +6,10 @@ from .widgets import PRIMARY_WIDGETS, SECONDARY_WIDGETS
 
 
 
-def gen_bar(_widgets):
+def gen_bar(_widgets, size=30):
     return bar.Bar(
         _widgets,
-        30,
+        size,
         background=["#111111", "#222222"],
         opacity=0.7
     )
@@ -42,7 +42,7 @@ if connected_screens > 1:
         screens.append(Screen(
                 wallpaper=today_wall(),
                 wallpaper_mode="stretch",
-                top=gen_bar(SECONDARY_WIDGETS)))
+                top=gen_bar(SECONDARY_WIDGETS, 22)))
 
     screen_config = "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --mode 1366x768 --pos 0x0 --rotate normal"
     subprocess.run(screen_config, shell=True)

@@ -7,5 +7,6 @@ colors = [
     '#c5c8c6',  # 2 - Texto
     '#cc6666',  # 3 - Resaltado
     "#a524e2",  # 4 - Borde Activo
+    "#a6a6a6",  # 5 - Grupo Inactivo
 ]
 

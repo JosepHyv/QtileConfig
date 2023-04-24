@@ -4,60 +4,65 @@ from .themes import colors
 
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font",
-    fontsize=12,
+    fontsize=13,
     padding=3,
     background=colors[0]
 )
 
 
 def separator() : 
-    return widget.Sep(linewidth = 0, padding = 4)
+    icons = ['', '󰇝', '󱋱']
+    # nf-cod-chevron_left, nf-md-drag_vertical, nf-md-drag_vertical_variant
+    return widget.TextBox(text=icons[1],fontsize=28, padding=5, opacity=0.3, foreground=colors[5])
 
-def workspaces():
+
+def workspaces(_fontsize=widget_defaults['fontsize'], _font=widget_defaults['font']):
     return [
-        separator(), 
         widget.GroupBox(
-            borderwidth=1,
             rounded=True,
             highlight_method='block',
             urgent_alert_method='block',
             this_current_screen_border=colors[4],
-            disable_drag=True
+            disable_drag=True,
+            font=_font,
+            fontsize=_fontsize,
+            foreground='#ffffff',
+            inactive=colors[5],
+            margin_y=3,
+            margin_x=0,
+            padding_y=8,
+            padding_x=5,
+            borderwidth=1,
+            center_aligned=True,
         ),
-        separator(),
-        widget.WindowName()
     ]
 
 
 PRIMARY_WIDGETS = [
-    *workspaces(), 
-    widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+    *workspaces(24, 'Nerd Font Bold'), 
+    widget.TextBox(" "),
+    widget.WindowName(padding=3),
     widget.Net(format="{down} ↓↑ {up}"),
-    widget.TextBox(" | "),
+    separator(),
     widget.CPU(),
-    widget.TextBox(" | "),
+    separator(),
     widget.KeyboardLayout(configured_keyboards=['us','es']),
-    widget.TextBox(" | "),
+    separator(),
     widget.Systray(),
-    widget.TextBox(" | "),
-    widget.Clock(format="%H:%M  %a-%d"),
-    widget.TextBox(" | "),
+    separator(),
+    widget.Clock(format="  %H:%M %a-%d"),
+    separator(),
+    widget.CurrentLayoutIcon(scale=0.50),
     widget.CurrentLayout(),
-    separator()
 ]
 
 SECONDARY_WIDGETS = [
-    *workspaces(), 
-    separator(), 
-    widget.Clock(format="%H:%M  %a-%d"),
-    separator(),
-    widget.CurrentLayoutIcon(scale=0.60),
-    widget.CurrentLayout(padding=5),
+    *workspaces(19, 'Nerd Font Bold'), 
+    widget.TextBox(' ', width=bar.STRETCH),
+    widget.Clock(format="  %H:%M %a-%d"),
+    widget.TextBox(' ', width=bar.STRETCH),
+    widget.CurrentLayoutIcon(scale=0.50),
+    widget.CurrentLayout(),
 ]
 
 

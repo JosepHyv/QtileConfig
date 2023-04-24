@@ -2,14 +2,15 @@ from .keys import keys, MOD
 from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 
+# unicode for nerd unifonts https://www.nerdfonts.com/cheat-sheet
 NAMES = [
-    'Web',
-    'Term',
-    'Dev',
-    'Auronix',
-    'DBas',
-    'Esc',
-    'Spotify',
+    '', # 'Web', nf-fa-chrome
+    '', # 'Term', nf-oct-terminal
+    '', # 'Dev', nf-dev-code
+    '', # 'Auronix', nf-linux-archlinux
+    '', # 'DBas', nf-fa-database
+    '󰑴', # 'Esc', nf-md-school
+    '', # 'Spotify', nf-fa-spotify
 ]
 
 groups = [Group(current) for current in NAMES]
