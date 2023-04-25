@@ -11,7 +11,8 @@ def gen_bar(_widgets, size=30):
         _widgets,
         size,
         background=["#111111", "#222222"],
-        opacity=0.7
+        opacity=0.7,
+        widget_shadow=True,
     )
 
 screens = [
