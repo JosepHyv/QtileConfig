@@ -13,7 +13,7 @@ widget_defaults = dict(
 def separator() : 
     icons = ['', '󰇝', '󱋱']
     # nf-cod-chevron_left, nf-md-drag_vertical, nf-md-drag_vertical_variant
-    return widget.TextBox(text=icons[1],fontsize=28, padding=5, opacity=0.3, foreground=colors[5])
+    return widget.TextBox(text=icons[1],fontsize=24, padding=5, opacity=0.3, foreground=colors[5])
 
 
 def workspaces(_fontsize=widget_defaults['fontsize'], _font=widget_defaults['font']):

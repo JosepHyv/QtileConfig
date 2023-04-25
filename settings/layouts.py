@@ -4,16 +4,15 @@ from libqtile.config import Match
 LAYOUT_CONFIG = {
     'border_focus': "#a524e2",
     'border_normal' : "#5a565b",
-    'border_ratio' : 1.8,
-    'border_width': 3,
- #   "border_rounding" : 100,
+    'ratio' : 1.8,
+    'border_width': 2,
     'margin': 5
 }
 
 LAYOUT_FLOATING = {
     'border_focus': "#a524e2",
     'border_normal' : "#5a565b",
-    'border_width': 3,
+    'border_width': 2,
 }
 
 layouts = [
