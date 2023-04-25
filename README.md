@@ -61,3 +61,14 @@ The systray of the config was build with:
 | blueman | is a GTK+ Bluetooth Manager | blueman-applet |
 | clipit | is a lightweight GTK+ clipboard manager | clipit |
 |kdeconnect | the kdeconnect utlitie in systray | /usr/bin/kdeconnect-indicator  |
+
+
+## proccess autostart
+all procces in autostart run on start up by qtile executing the `autostart.sh` script, in this file i launch the systray icons that i use, and run some process for my workflow, there are:
+
+| process | description | 
+| ------- | ----------- |
+| `picom -b --config "$CONFIG_DIR/picom/picom.conf" &` | run picom compositor with my picon config |
+| `/usr/lib/pam_kwallet_init &` | start the kwallet process and service for auth, for example, for automatic wifi connection with saved networks |
+|`/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & ` | start polkit gnome auth agent, this is a utilitie for some apps that require that introduce you password (is the input password dialog) |
+|`light-locker &`| is the service for lightdm, this service allows me to lock my screen, this only works if you use lightdm, in other case is unnecesary|
