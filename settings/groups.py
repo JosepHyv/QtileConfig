@@ -1,4 +1,3 @@
-from .utils import get_current_group_name
 from .keys import keys, MOD
 from libqtile.config import Group, Key
 from libqtile.lazy import lazy
