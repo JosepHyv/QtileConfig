@@ -11,7 +11,8 @@ sudo pacman -Syu network-manager-applet \
 	blueman \
 	pulseaudio-bluetooth \
 	light-locker lightdm-webkit2-greeter \
-	polkit-gnome
+	polkit-gnome \
+	pavucontrol
 	
 	
 echo "installing AUR packages"
