@@ -4,12 +4,16 @@ from libqtile.config import Match
 LAYOUT_CONFIG = {
     'border_focus': "#a524e2",
     'border_normal' : "#5a565b",
-    'border_ratio' : 1.2,
+    'ratio' : 1.8,
     'border_width': 2,
-    "border_rounding" : 10,
-    'margin': 4
+    'margin': 5
 }
 
+LAYOUT_FLOATING = {
+    'border_focus': "#a524e2",
+    'border_normal' : "#5a565b",
+    'border_width': 2,
+}
 
 layouts = [
     layout.Bsp(**LAYOUT_CONFIG),
@@ -22,6 +26,7 @@ layouts = [
 ]
 
 floating_layout = layout.Floating(
+    **LAYOUT_FLOATING,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,

@@ -28,14 +28,6 @@ keys = [
     Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-
-    Key(
-        [MOD, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
-
     Key([MOD], "Return", lazy.spawn(TERMINAL), desc="abre instancia de kitty terminal"),
     # Toggle between different layouts as defined below
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
@@ -48,6 +40,7 @@ keys = [
     # Configuracion de rofi 
 
     Key([Alt], "space", lazy.spawn("rofi -show run")),
+    Key([Alt], "Tab", lazy.spawn("rofi -show window")),
     Key([MOD, Alt], "space", lazy.spawncmd()),
 
     #Control de volumne 
@@ -68,10 +61,6 @@ keys = [
 
      ## ventanas flotantes 
      Key([MOD, "shift"], 'f', lazy.window.toggle_floating()),
-
-     ## Mover ventanas (rotando)
-     Key([MOD, "shift"], "space", lazy.layout.rotate()),
-
      Key([MOD, "shift"], "s",lazy.layout.toggle_split()),
      Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard()),
 
