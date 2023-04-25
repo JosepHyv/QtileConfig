@@ -23,39 +23,10 @@ def autostart() -> None:
     config_path = os.path.join(os.path.expanduser("~"), ".config","qtile", "autostart.sh")
     subprocess.call([config_path])
     
-
-# Hacer que las ventanas flotantes vengan automáticamente al frente
 @hook.subscribe.client_focus
-def bring_floating_to_front(c):
+def floating_windows(c):
     if c.floating:
         c.cmd_bring_to_front()
-
-# Hacer que las ventanas no flotantes se envíen automáticamente al fondo o al frente
-@hook.subscribe.focus_change
-def focus_change_callback(c):
-    group = c.group
-    if not c.floating:
-        for w in group.windows:
-            if w != c and w.floating:
-                if (
-                    w.x <= c.x <= w.x + w.width and
-                    w.y <= c.y <= w.y + w.height
-                ):
-                    c.cmd_lower()
-                    break
-                else:
-                    c.cmd_bring_to_front()
-                    break
-            elif (
-                group.current_window != c and not group.current_window.floating and
-                c != w and not w.floating
-            ):
-                c.cmd_bring_to_front()
-    elif c.floating:
-        for w in group.windows:
-            if w != c and not w.floating:
-                w.cmd_lower()
-
 
 
 
