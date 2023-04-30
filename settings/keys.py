@@ -71,6 +71,7 @@ keys = [
      Key([MOD], 's', lazy.spawn('slack')),  
      Key([MOD], 'g', lazy.spawn('google-chrome-stable')),  
      Key([MOD], "x", lazy.spawn('chromium')),
+     Key([MOD], 'c', lazy.spawn('code --new-window')),
 ]
 
 
