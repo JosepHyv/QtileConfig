@@ -39,7 +39,7 @@ def workspaces(_fontsize=widget_defaults['fontsize'], _font=widget_defaults['fon
 
 
 PRIMARY_WIDGETS = [
-    *workspaces(24, 'Nerd Font Bold'), 
+    *workspaces(15, 'Symbols Nerd Font Mono'), 
     widget.TextBox(" "),
     widget.WindowName(padding=3),
     widget.Net(format="{down} ↓↑ {up}"),
@@ -57,7 +57,7 @@ PRIMARY_WIDGETS = [
 ]
 
 SECONDARY_WIDGETS = [
-    *workspaces(19, 'Nerd Font Bold'), 
+    *workspaces(15, 'Symbols Nerd Font Mono'), 
     widget.TextBox(' ', width=bar.STRETCH),
     widget.Clock(format="  %H:%M %a-%d"),
     widget.TextBox(' ', width=bar.STRETCH),
