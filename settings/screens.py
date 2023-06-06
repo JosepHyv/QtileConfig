@@ -15,9 +15,9 @@ def gen_bar(_widgets, size=30):
         widget_shadow=True,
     )
 
-screens = [
+current_config = [
     Screen(
-        wallpaper=select_wall('darkest-hour1.jpg'),
+        wallpaper=today_wall(),
         wallpaper_mode="stretch",
         top=gen_bar(PRIMARY_WIDGETS)
     ),
@@ -29,7 +29,7 @@ xrandr_command = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
 command = subprocess.run(
     xrandr_command, 
     shell = True, 
-     stdout=subprocess.PIPE,
+    stdout=subprocess.PIPE,
     stderr=subprocess.PIPE,
 )
 
@@ -40,14 +40,16 @@ if  not command.returncode:
 
 if connected_screens > 1:
     screen_config = "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --mode 1366x768 --pos 0x0 --rotate normal"
-    screen_command = subprocess.Popen(screen_config, shell=True, stdout=subprocess.PIPE)
-    if not command.returncode:
-        for _ in range (1, connected_screens):
-            screens.append(Screen(
-                    wallpaper=today_wall(),
-                    wallpaper_mode="stretch",
-                    top=gen_bar(SECONDARY_WIDGETS, 22)))
+    for _ in range (1, connected_screens):
+        current_config.append(Screen(
+                wallpaper=select_wall('dragon_side.jpg'),
+                wallpaper_mode="stretch",
+                top=gen_bar(SECONDARY_WIDGETS, 22)))
+        subprocess.Popen(screen_config, shell=True, stdout=subprocess.PIPE)
 else:
     laptop = 'xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off'
-    subprocess.run(laptop, shell=True, stdout=subprocess.PIPE)
+    subprocess.Popen(laptop, shell=True, stdout=subprocess.PIPE)
     
+
+
+screens = current_config

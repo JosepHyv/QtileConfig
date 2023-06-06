@@ -14,20 +14,26 @@ keys = [
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([MOD], "i", lazy.layout.grow()),
+    Key([MOD], "m", lazy.layout.shrink()),
+    Key([MOD], "n", lazy.layout.normalize()),
+    Key([MOD], "o", lazy.layout.maximize()),
     Key([MOD], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([MOD, "shift"], "space", lazy.layout.flip()),
 
     # control de columnas y filas 
     Key([MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([MOD, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-
-    #redimencionar las ventanas 
     Key([MOD, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    
+
+    #redimencionar las ventanas 
     Key([MOD], "Return", lazy.spawn(TERMINAL), desc="abre instancia de kitty terminal"),
     # Toggle between different layouts as defined below
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
