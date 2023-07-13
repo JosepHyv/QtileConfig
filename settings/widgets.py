@@ -46,7 +46,7 @@ PRIMARY_WIDGETS = [
     separator(),
     widget.CPU(),
     separator(),
-    widget.KeyboardLayout(configured_keyboards=['us','es']),
+    widget.KeyboardLayout(configured_keyboards=['us','latam']),
     separator(),
     widget.Systray(),
     separator(),

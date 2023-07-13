@@ -43,6 +43,7 @@ keys = [
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
     Key([MOD], "w", lazy.window.kill(), desc="Mata ventana actual"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([MOD, "control"], "l", lazy.spawn('rofi -show power-menu -modi power-menu:rofi-power-menu')),
     Key([MOD, "control", Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([Alt], "space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
@@ -83,5 +84,6 @@ keys = [
      Key([MOD], "x", lazy.spawn('chromium')),
      Key([MOD], 'c', lazy.spawn('code --new-window')),
 ]
+
 
 
