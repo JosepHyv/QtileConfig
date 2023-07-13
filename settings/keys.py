@@ -26,6 +26,10 @@ keys = [
     Key([MOD, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([MOD, Alt], "j", lazy.layout.flip_down()),
+    Key([MOD, Alt], "k", lazy.layout.flip_up()),
+    Key([MOD, Alt], "h", lazy.layout.flip_left()),
+    Key([MOD, Alt], "l", lazy.layout.flip_right()),
     Key([MOD, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
@@ -57,12 +61,12 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 
     ## capturar pantalla 
-     Key([], "Print", lazy.spawn("spectacle -b --copy-image --fullscreen")),
-     Key([MOD], "Print", lazy.spawn("spectacle -b --fullscreen")),
-     Key([Alt], "Print", lazy.spawn("spectacle -b --region --copy-image")),
-     Key([MOD, Alt], "Print", lazy.spawn("spectacle -b --region")),      
-     Key(['control'], "Print", lazy.spawn("spectacle -b --activewindow --copy-image")),       
-     Key([MOD, 'control'], "Print", lazy.spawn("spectacle -b --activewindow")),       
+     Key([], "Print", lazy.spawn("spectacle -s -b --fullscreen --copy-image")),
+     Key([MOD], "Print", lazy.spawn("spectacle -s -b --fullscreen")),
+     Key([Alt], "Print", lazy.spawn("spectacle -s -b -w --region --copy-image")),
+     Key([MOD, Alt], "Print", lazy.spawn("spectacle -s -b --region")),      
+     Key(['control'], "Print", lazy.spawn("spectacle -s -b --activewindow --copy-image")),       
+     Key([MOD, 'control'], "Print", lazy.spawn("spectacle -s -b --activewindow")),       
      Key([MOD, Alt], "l", lazy.spawn("light-locker-command --lock")),
 
      ## ventanas flotantes 
@@ -71,7 +75,7 @@ keys = [
      Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard()),
 
      ## My main apps workflow
-     Key([MOD], "m", lazy.spawn('min')),
+#     Key([MOD], "m", lazy.spawn('min')),
      Key([MOD], 'e', lazy.spawn('thunar')),
      Key([MOD], 't', lazy.spawn('com.todoist.Todoist')), 
      Key([MOD], 's', lazy.spawn('slack')),  
