@@ -1,22 +1,28 @@
 #!/usr/bin/sh
 
 echo "installing pacman packages"
-sudo pacman -Syu network-manager-applet \
-	ttf-jetbrains-mono-nerd \
-	papirus-icon-theme \
-	brightnessctl \
-	volumeicon \
-	dunst \
-	cbatticon \
-	blueman \
-	pulseaudio-bluetooth \
-	light-locker lightdm-webkit2-greeter \
-	polkit-gnome \
-	pavucontrol
+sudo pacman -Syu \
+  network-manager-applet \
+  ttf-jetbrains-mono-nerd \
+  papirus-icon-theme \
+  brightnessctl \
+  volumeicon \
+  dunst \
+  cbatticon \
+  blueman \
+  pulseaudio-bluetooth \
+  light-locker \
+  lightdm-webkit2-greeter \
+  polkit-gnome \
+  pavucontrol \
+  ttf-nerd-fonts-symbols-mono \
+  ttf-nerd-fonts-symbols-common \
+  ttf-nerd-fonts-symbols 
 	
 	
 echo "installing AUR packages"
-yay -S picom-ibhagwan-git \
+yay -S \
+    picom-ibhagwan-git \
 	clipit 
 
 
