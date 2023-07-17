@@ -23,9 +23,10 @@ def autostart() -> None:
     config_path = os.path.join(os.path.expanduser("~"), ".config","qtile", "autostart.sh")
     subprocess.call([config_path])
     
-
-
-
+@hook.subscribe.client_focus
+def floating_windows(c):
+    if c.floating:
+        c.cmd_bring_to_front()
 
 
 
@@ -35,7 +36,7 @@ follow_mouse_focus = True
 bring_front_click = True
 cursor_warp = False
 auto_fullscreen = True
-focus_on_window_activation = "urgent"
+focus_on_window_activation = "smart"
 reconfigure_screens = True
 auto_minimize = True
 wl_input_rules = None

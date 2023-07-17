@@ -7,7 +7,7 @@ CONFIG_DIR="${HOME}/.config"
 nm-applet & 
 picom -b --config "$CONFIG_DIR/picom/picom.conf" &
 volumeicon &
-cbatticon -u 5 &
+cbatticon -u 1 &
 blueman-applet &
 # start kwallet for auth
 /usr/lib/pam_kwallet_init &

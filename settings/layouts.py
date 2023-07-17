@@ -4,9 +4,13 @@ from libqtile.config import Match
 LAYOUT_CONFIG = {
     'border_focus': "#a524e2",
     'border_normal' : "#5a565b",
-    'ratio' : 1.8,
+}
+
+MARGINS_AND_BORDERS = {
     'border_width': 2,
-    'margin': 5
+    'single_border_width'  : 2, 
+    'single_margin' : 5, 
+    'margin' : 5
 }
 
 LAYOUT_FLOATING = {
@@ -16,13 +20,14 @@ LAYOUT_FLOATING = {
 }
 
 layouts = [
-    layout.Bsp(**LAYOUT_CONFIG),
+    # layout.MonadTall(**LAYOUT_CONFIG,
+    # border_width = 2,
+    # single_border_width  = 2,
+    # single_margin = 5,
+    # margin = 7),
+    layout.Bsp(**LAYOUT_CONFIG, **MARGINS_AND_BORDERS, ratio=1.8),
     layout.Max(),
-    ### if i neeed i can unmark this amazing layouts
-
-    # layout.MonadWide(**LAYOUT_CONFIG),
-    # layout.RatioTile(**LAYOUT_CONFIG),
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    
 ]
 
 floating_layout = layout.Floating(
@@ -36,5 +41,6 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+        Match(wm_class='kdenlive'),
+    ],
 ) 
