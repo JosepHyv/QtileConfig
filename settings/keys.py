@@ -1,3 +1,4 @@
+import os
 from libqtile.config import Key 
 from libqtile.lazy import lazy 
 
@@ -43,14 +44,14 @@ keys = [
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
     Key([MOD], "w", lazy.window.kill(), desc="Mata ventana actual"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([MOD, "control"], "l", lazy.spawn('rofi -show power-menu -modi power-menu:rofi-power-menu')),
+    Key([MOD], "q", lazy.spawn(os.path.expanduser('~/.config/rofi/powermenu.sh'))),
     Key([MOD, "control", Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([Alt], "space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
 
     # Configuracion de rofi 
 
-    Key([Alt], "space", lazy.spawn("rofi -show run")),
+    Key([Alt], "space", lazy.spawn(os.path.expanduser('~/.config/rofi/rofi-run.sh'))),
     Key([Alt], "Tab", lazy.spawn("rofi -show window")),
     Key([MOD, Alt], "space", lazy.spawncmd()),
 
