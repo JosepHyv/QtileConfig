@@ -1,0 +1,9 @@
+@import 'colors.css';
+headerbar .button.titlebutton {
+    padding: 0px;
+    margin: 0px;
+    min-width: 0px;
+    min-height: 0px;
+    border: none;
+    box-shadow: none;
+}
