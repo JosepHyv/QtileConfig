@@ -15,11 +15,12 @@ sudo pacman -Syu \
   lightdm-webkit2-greeter \
   polkit-gnome \
   pavucontrol \
-  ttf-nerd-fonts-symbols-mono \
-  ttf-nerd-fonts-symbols-common \
-  ttf-nerd-fonts-symbols 
-	
-	
+  noto-fonts 
+
+
+sudo pacman -Syu $(pacman -Ssq nerd-fonts)
+
+
 echo "installing AUR packages"
 yay -S \
     picom-ibhagwan-git \
