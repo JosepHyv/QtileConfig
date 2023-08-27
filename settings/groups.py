@@ -1,5 +1,5 @@
 from .keys import keys, MOD
-from libqtile.config import Group, Key
+from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
 
@@ -14,7 +14,13 @@ NAMES = [
     '', # 'Spotify', nf-fa-spotify
 ]
 
-groups = [Group(current) for current in NAMES]
+browsers = ['Chromium', 'google-chrome', 'firefox']
+
+groups = [Group(
+        NAMES[0], 
+        exclusive=True, 
+        matches=[Match(wm_class=name) for name in browsers]
+    )] + [Group(current) for current in NAMES[1::]]
 
 def group_position(name : str ) -> str:
     global NAMES

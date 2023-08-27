@@ -11,7 +11,7 @@ from libqtile import hook, qtile
 # main keywords config 
 from settings.keys import keys
 from settings.mouse import mouse
-from settings.layouts import layouts, floating_layout
+from settings.layouts import layouts, floating_layout, dgroups_app_rules
 from settings.groups import groups
 from settings.widgets import widget_defaults, extension_defaults
 from settings.screens import screens
@@ -31,7 +31,6 @@ def floating_windows(c):
 
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = True
 cursor_warp = False

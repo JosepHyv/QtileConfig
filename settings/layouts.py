@@ -1,5 +1,6 @@
+from .groups import NAMES
 from libqtile import layout
-from libqtile.config import Match
+from libqtile.config import Match, Rule
 
 LAYOUT_CONFIG = {
     'border_focus': "#a524e2",
@@ -42,5 +43,29 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class='kdenlive'),
+        Match(wm_class='min'),
+        Match(wm_class='thunar')
     ],
 ) 
+
+# match xprop | grep -i WM_CLASS
+floating_apps = ['min', 'kitty', 'flipper', 'code']
+
+dgroups_app_rules = [ 
+    Rule(
+        match=[Match(wm_class=current) for current in floating_apps],
+        float=True, 
+        intrusive=True
+    )
+]
+#     Rule(
+#         match=[Match(wm_class='min')],
+#         float=True,
+#         intrusive=True
+#     ),
+#     Rule(
+#         match=[Match(wm_class='kitty')],
+#         float=True,
+#         intrusive=True
+#     )        
+# ]
