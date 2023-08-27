@@ -9,9 +9,8 @@ picom -b --config "$CONFIG_DIR/picom/picom.conf" &
 volumeicon &
 cbatticon -u 1 &
 blueman-applet &
-# start kwallet for auth
-/usr/lib/pam_kwallet_init &
 clipit &
+/usr/bin/gnome-keyring-daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & 
 /usr/bin/kdeconnect-indicator & 
 light-locker & 
