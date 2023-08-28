@@ -43,13 +43,11 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class='kdenlive'),
-        Match(wm_class='min'),
-        Match(wm_class='thunar')
     ],
 ) 
 
 # match xprop | grep -i WM_CLASS
-floating_apps = ['min', 'kitty', 'flipper', 'code']
+floating_apps = ['min', 'kitty', 'flipper', 'code', 'thunar']
 
 dgroups_app_rules = [ 
     Rule(
