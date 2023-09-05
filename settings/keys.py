@@ -77,12 +77,12 @@ keys = [
      Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard()),
 
      ## My main apps workflow
-#     Key([MOD], "m", lazy.spawn('min')),
+     Key([MOD], "m", lazy.spawn('min')),
      Key([MOD], 'e', lazy.spawn('thunar')),
      Key([MOD], 't', lazy.spawn('com.todoist.Todoist')), 
      Key([MOD], 's', lazy.spawn('slack')),  
-     Key([MOD], 'g', lazy.spawn('google-chrome-stable')),  
-     Key([MOD], "x", lazy.spawn('chromium')),
+     Key([MOD], 'g', lazy.spawn('google-chrome-stable --force-device-scale-factor=0.8')),  
+     Key([MOD], "x", lazy.spawn('chromium --force-device-scale-factor=0.8')),
      Key([MOD], 'c', lazy.spawn('code --new-window')),
 ]
 
