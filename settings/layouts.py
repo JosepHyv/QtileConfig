@@ -52,8 +52,9 @@ floating_apps = ['min', 'kitty', 'flipper', 'code', 'thunar']
 dgroups_app_rules = [ 
     Rule(
         match=[Match(wm_class=current) for current in floating_apps],
-        float=True, 
-        intrusive=True
+        float=True,
+        intrusive=False
+
     )
 ]
 #     Rule(

@@ -15,7 +15,6 @@ from settings.layouts import layouts, floating_layout, dgroups_app_rules
 from settings.groups import groups
 from settings.widgets import widget_defaults, extension_defaults
 from settings.screens import screens
-import settings.wallpaper as wp
 
 
 @hook.subscribe.startup_once
@@ -31,16 +30,15 @@ def floating_windows(c):
 
 
 dgroups_key_binder = None
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = True
 cursor_warp = False
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = "focus"
 reconfigure_screens = True
 auto_minimize = True
-wl_input_rules = None
 wmname = "LG3D"
-
+floats_kepts_above = False
 
 # @hook.subscribe.screen_change
 # def unlock_on_resume(qtile, ev):
