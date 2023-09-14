@@ -6,7 +6,7 @@ from psutil import sensors_battery
 
 LAST_STATUS = None
 DEFAULT_LANG = 'es'
-LOW_LEVEL = 25.0
+LOW_LEVEL = 26
 CRITICAL_LEVEL = 10.0
 UPDATE_INTERVAL = 0.3 #in seconds
 TITLE = {
@@ -58,7 +58,6 @@ def notify(title:str, msg:str, urgency='normal', time=5000):
         quote(msg),
         urgency
     )
-    print(command)
     try:
         sh_command = split(command)
         call(sh_command)
@@ -93,7 +92,6 @@ def send_notify():
         msg = LANG[DEFAULT_LANG]['status'][status_title]
         msg = msg.format(int(percent), time_left).split('\n')
         msg = '\n'.join(sentence.capitalize() for sentence in msg)
-        print(LAST_STATUS, status_title)
         if status_title != LAST_STATUS:
             LAST_STATUS = status_title
             urgency = 'normal'
