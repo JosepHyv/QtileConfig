@@ -52,11 +52,12 @@ LANG = {
 }
 
 
-def notify(title:str, msg:str, urgency='normal', time=5000):
-    command = "notify-send {} {} -u {}".format(
+def notify(title:str, msg:str, urgency, time):
+    command = "notify-send {} {} -u {} -t {}".format(
         quote(title), 
         quote(msg),
-        urgency
+        urgency,
+        time
     )
     try:
         sh_command = split(command)
