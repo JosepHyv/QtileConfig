@@ -291,7 +291,7 @@
     icon = /home/josephy/.config/dunst/normal.png
 
 [urgency_critical]
-    background = "#cc241d"
+    background = "#282828"
     foreground = "#fbf1c7"
     frame_color = "#ff0000"
     timeout = 7

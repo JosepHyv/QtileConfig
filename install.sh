@@ -20,7 +20,7 @@ if [ -d $UNDESEBALE_DIRS[1] ]; then
 	rm -rvf $UNDESEBALE_DIRS[1]
 fi 
 
-cp -rv  config.py autostart.sh fondos settings "$CONFIG_DIR/qtile/."
+cp -rv  battery.py config.py autostart.sh fondos settings "$CONFIG_DIR/qtile/."
 
 
 

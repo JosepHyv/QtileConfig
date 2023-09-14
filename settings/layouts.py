@@ -47,7 +47,7 @@ floating_layout = layout.Floating(
 ) 
 
 # match xprop | grep -i WM_CLASS
-floating_apps = ['min', 'kitty', 'flipper', 'code', 'thunar']
+floating_apps = ['min', 'kitty', 'flipper', 'code', 'thunar', 'slack', 'pavucontrol', 'blueman-applet']
 
 dgroups_app_rules = [ 
     Rule(

@@ -7,11 +7,10 @@ CONFIG_DIR="${HOME}/.config"
 nm-applet & 
 picom -b --config "$CONFIG_DIR/picom/picom.conf" &
 volumeicon &
-cbatticon -u 1 &
 blueman-applet &
 clipit &
 /usr/bin/gnome-keyring-daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & 
 /usr/bin/kdeconnect-indicator & 
 light-locker & 
-
+exec "$CONFIG_DIR/qtile/./battery.py" 
