@@ -13,4 +13,4 @@ clipit &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & 
 /usr/bin/kdeconnect-indicator & 
 light-locker & 
-exec "$CONFIG_DIR/qtile/./battery.py" 
+"$CONFIG_DIR/qtile/./battery.py" &

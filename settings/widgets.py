@@ -48,7 +48,7 @@ PRIMARY_WIDGETS = [
     separator(),
     widget.KeyboardLayout(configured_keyboards=['us','latam']),
     separator(),
-    widget.Battery(update_interval=0.4,
+    widget.Battery(update_interval=0.3,
                    unknow_char='',
                    empty_char='',
                    charge_char='',
