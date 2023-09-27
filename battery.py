@@ -68,10 +68,10 @@ def notify(title:str, msg:str, urgency, time):
 def determine_battery_status(percent, plug):
     low = LOW_LEVEL
     critical = CRITICAL_LEVEL
+    if plug and percent >= 100:
+        return 'full'
     if plug:
         return 'charging'
-    if percent == 100:
-        return 'full'
     low, critical = (critical, low) if low <= critical else (low, critical)
     if percent > low:
         return 'discharging'
