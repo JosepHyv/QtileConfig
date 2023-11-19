@@ -3,21 +3,21 @@ from libqtile import layout
 from libqtile.config import Match, Rule
 
 LAYOUT_CONFIG = {
-    'border_focus': "#a524e2",
-    'border_normal' : "#5a565b",
+    "border_focus": "#a524e2",
+    "border_normal": "#5a565b",
 }
 
 MARGINS_AND_BORDERS = {
-    'border_width': 2,
-    'single_border_width'  : 2, 
-    'single_margin' : 5, 
-    'margin' : 5
+    "border_width": 2,
+    "margin_on_single": 18,
+    "margin": 8,
+    "wrap_clients": True,
 }
 
 LAYOUT_FLOATING = {
-    'border_focus': "#a524e2",
-    'border_normal' : "#5a565b",
-    'border_width': 2,
+    "border_focus": "#a524e2",
+    "border_normal": "#5a565b",
+    "border_width": 2,
 }
 
 layouts = [
@@ -26,9 +26,8 @@ layouts = [
     # single_border_width  = 2,
     # single_margin = 5,
     # margin = 7),
-    layout.Bsp(**LAYOUT_CONFIG, **MARGINS_AND_BORDERS, ratio=1.8),
+    layout.Bsp(**LAYOUT_CONFIG, **MARGINS_AND_BORDERS, ratio=1),
     layout.Max(),
-    
 ]
 
 floating_layout = layout.Floating(
@@ -42,19 +41,18 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-        Match(wm_class='kdenlive'),
+        Match(wm_class="kdenlive"),
     ],
-) 
+)
 
 # match xprop | grep -i WM_CLASS
-floating_apps = ['min', 'kitty', 'flipper', 'code', 'thunar', 'slack', 'pavucontrol', 'blueman-applet']
+floating_apps = ["min", "pavucontrol", "Blueman-applet"]
 
-dgroups_app_rules = [ 
+dgroups_app_rules = [
     Rule(
         match=[Match(wm_class=current) for current in floating_apps],
         float=True,
-        intrusive=False
-
+        intrusive=False,
     )
 ]
 #     Rule(
@@ -66,5 +64,6 @@ dgroups_app_rules = [
 #         match=[Match(wm_class='kitty')],
 #         float=True,
 #         intrusive=True
-#     )        
+#     )
 # ]
+
