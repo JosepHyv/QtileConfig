@@ -36,6 +36,10 @@
     background-color: @background;
     border:           1;
     padding:          5;
+    width:            550;
+    dynamic:          true;
+    height:           250;
+
 }
 #mainbox {
     border:  0;
@@ -136,4 +140,9 @@
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
+}
+#element {
+  orientation: horizontal;
+  children: [ element-text, element-icon ];
+  spacing: 5px;
 }
