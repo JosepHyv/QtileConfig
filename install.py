@@ -74,17 +74,13 @@ def backup(origin: List[str], create: bool):
                 print("Error Creating Backup :(")
                 print("An error happend in compression process")
                 print(output.stderr)
-                return ask_continue()
             else:
                 print("Backup Finished in {}".format(name))
-            return ask_continue()
-
         else:
             print("WARNING BACKUP IS DISABLED")
-            return ask_continue()
     else:
         print("WARNING CANT CREATE BACKUP")
-        return ask_continue()
+    return ask_continue()
 
 
 # process start
