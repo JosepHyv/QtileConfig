@@ -95,6 +95,7 @@ keys = [
     Key([MOD, "shift"], "f", lazy.window.toggle_floating()),
     Key([MOD, "shift"], "s", lazy.layout.toggle_split()),
     Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard()),
+    Key([MOD, Alt], "p", lazy.spawn("arandr")),
     ## My main apps workflow
     # Configuracion de rofi
     Key([Alt], "space", lazy.spawn(os.path.expanduser("~/.config/rofi/rofi-run.sh"))),
@@ -110,4 +111,3 @@ keys = [
     Key([MOD], "x", lazy.spawn("chromium --force-device-scale-factor=0.89")),
     Key([MOD], "c", lazy.spawn("code --new-window")),
 ]
-
