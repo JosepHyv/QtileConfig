@@ -1,6 +1,7 @@
 # takings inspiration from here
 from libqtile import bar, widget
 from .themes import colors
+from qtile_extras import widget as widex
 
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font", fontsize=13, padding=3, background=colors[0]
@@ -41,27 +42,30 @@ PRIMARY_WIDGETS = [
     *workspaces(15, "Symbols Nerd Font Mono"),
     widget.TextBox(" "),
     widget.WindowName(padding=3, markup=False, format="{name}"),
-    widget.Memory(format="󰓅  {MemUsed: .0f}{mm}"),
+    # widex.GlobalMenu(),
+    widget.Memory(format="󰓅 {MemUsed: .0f}{mm}"),
     separator(),
-    widget.CPU(format="   {load_percent}%"),
+    widget.CPU(format=" {load_percent}%"),
     separator(),
     widget.KeyboardLayout(configured_keyboards=["us", "latam"]),
     separator(),
+    widget.Volume(fmt="󰕾 {} ", volume_app="pavucontrol"),
     widget.Battery(
         update_interval=0.3,
-        unknow_char="  ",
-        empty_char="  ",
-        charge_char="  ",
-        full_char="  ",
+        unknow_char="",
+        empty_char="",
+        charge_char="",
+        full_char="",
         show_short_text=False,
         low_percentage=0.20,
         notify_below=0.21,
-        discharge_char="  ",
+        discharge_char="",
         format="{char} {percent:1.0%}",
     ),
     widget.Systray(),
+    # widget.StatusNotifier(),
     separator(),
-    widget.Clock(format="   %H:%M %a-%d"),
+    widget.Clock(format=" %H:%M %a-%d"),
     separator(),
     widget.CurrentLayoutIcon(scale=0.50),
     widget.CurrentLayout(),
@@ -70,7 +74,7 @@ PRIMARY_WIDGETS = [
 SECONDARY_WIDGETS = [
     *workspaces(15, "Symbols Nerd Font Mono"),
     widget.TextBox(" ", width=bar.STRETCH),
-    widget.Clock(format="   %H:%M %a-%d"),
+    widget.Clock(format=" %H:%M %a-%d"),
     widget.TextBox(" ", width=bar.STRETCH),
     widget.CurrentLayoutIcon(scale=0.50),
     widget.CurrentLayout(),

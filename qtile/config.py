@@ -34,7 +34,7 @@ def floating_windows(c):
 dgroups_key_binder = None
 follow_mouse_focus = False
 bring_front_click = True
-cursor_warp = True
+cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "focus"
 reconfigure_screens = True

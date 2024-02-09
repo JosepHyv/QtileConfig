@@ -49,10 +49,10 @@ if connected_screens > 1:
                 top=gen_bar(SECONDARY_WIDGETS, 27),
             )
         )
-        # subprocess.Popen(screen_config, shell=True, stdout=subprocess.PIPE)
-# else:
-#   laptop = 'xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off'
-#   subprocess.Popen(laptop, shell=True, stdout=subprocess.PIPE)
+        subprocess.Popen(screen_config, shell=True, stdout=subprocess.PIPE)
+else:
+    laptop = "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off"
+    subprocess.Popen(laptop, shell=True, stdout=subprocess.PIPE)
 
 
 screens = current_config
