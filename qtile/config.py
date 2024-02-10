@@ -1,14 +1,14 @@
-from libqtile import bar,widget
+from libqtile import bar, widget
 from libqtile.config import Screen
 from libqtile.lazy import lazy
 
 # my personalization
 # extra libs for autostart
-import os 
+import os
 import subprocess
 from libqtile import hook, qtile
 
-# main keywords config 
+# main keywords config
 from settings.keys import keys
 from settings.mouse import mouse
 from settings.layouts import layouts, floating_layout, dgroups_app_rules
@@ -19,14 +19,16 @@ from settings.screens import screens
 
 @hook.subscribe.startup_once
 def autostart() -> None:
-    config_path = os.path.join(os.path.expanduser("~"), ".config","qtile", "autostart.sh")
+    config_path = os.path.join(
+        os.path.expanduser("~"), ".config", "qtile", "autostart.sh"
+    )
     subprocess.call([config_path])
-    
+
+
 @hook.subscribe.client_focus
 def floating_windows(c):
     if c.floating:
         c.cmd_bring_to_front()
-
 
 
 dgroups_key_binder = None
@@ -42,8 +44,8 @@ floats_kepts_above = False
 
 # @hook.subscribe.screen_change
 # def unlock_on_resume(qtile, ev):
-    # if ev.state == "off":
-        # qtile.cmd_spawn("xfce4-screensaver-command -d")
+# if ev.state == "off":
+# qtile.cmd_spawn("xfce4-screensaver-command -d")
 
 # Configuramos el salvapantallas para que no se inicie automáticamente
 screensaver = {

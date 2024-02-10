@@ -1,10 +1,11 @@
 from .groups import NAMES
 from libqtile import layout
 from libqtile.config import Match, Rule
+from .themes import colors
 
 LAYOUT_CONFIG = {
-    "border_focus": "#a524e2",
-    "border_normal": "#5a565b",
+    "border_focus": colors[4],
+    "border_normal": colors[7],
 }
 
 MARGINS_AND_BORDERS = {
@@ -15,8 +16,8 @@ MARGINS_AND_BORDERS = {
 }
 
 LAYOUT_FLOATING = {
-    "border_focus": "#a524e2",
-    "border_normal": "#5a565b",
+    "border_focus": colors[4],
+    "border_normal": colors[7],
     "border_width": 2,
 }
 
@@ -46,7 +47,7 @@ floating_layout = layout.Floating(
 )
 
 # match xprop | grep -i WM_CLASS
-floating_apps = ["min", "pavucontrol", "Blueman-applet"]
+floating_apps = ["min", "pavucontrol", "Blueman-applet", "arandr"]
 
 dgroups_app_rules = [
     Rule(
@@ -66,4 +67,3 @@ dgroups_app_rules = [
 #         intrusive=True
 #     )
 # ]
-
