@@ -1,7 +1,6 @@
 # takings inspiration from here
 from libqtile import bar, widget
 from .themes import colors
-from qtile_extras import widget as widex
 
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font", fontsize=13, padding=3, background=colors[0]
@@ -42,7 +41,6 @@ PRIMARY_WIDGETS = [
     *workspaces(15, "Symbols Nerd Font Mono"),
     widget.TextBox(" "),
     widget.WindowName(padding=3, markup=False, format="{name}"),
-    # widex.GlobalMenu(),
     widget.Memory(format="󰓅 {MemUsed: .0f}{mm}"),
     separator(),
     widget.CPU(format=" {load_percent}%"),
