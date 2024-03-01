@@ -2,28 +2,29 @@
 
 echo "installing pacman packages"
 sudo pacman -Syu \
+  picom \
+  rofi \
   network-manager-applet \
-  ttf-jetbrains-mono-nerd \
   papirus-icon-theme \
   brightnessctl \
-  volumeicon \
   dunst \
-  cbatticon \
   blueman \
-  pulseaudio-bluetooth \
+  polkit-gnome \
   light-locker \
   lightdm-webkit2-greeter \
-  polkit-gnome \
   pavucontrol \
+  alsa-utils \
+  pipewire-pulse \
+  ttf-jetbrains-mono \
+  ttf-jetbrains-mono-nerd \
+  ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-mono \
   noto-fonts 
 
-
-sudo pacman -Syu $(pacman -Ssq nerd-fonts)
 
 
 echo "installing AUR packages"
 yay -S \
-    picom-ibhagwan-git \
 	clipit 
 
 
