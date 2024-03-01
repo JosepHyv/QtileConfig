@@ -40,7 +40,8 @@ def workspaces(_fontsize=widget_defaults["fontsize"], _font=widget_defaults["fon
 PRIMARY_WIDGETS = [
     *workspaces(15, "Symbols Nerd Font Mono"),
     widget.TextBox(" "),
-    widget.WindowName(padding=3, markup=False, format="{name}"),
+    # widget.WindowName(padding=3, markup=False, format="{name}"),
+    widget.TextBox(" ", width=bar.STRETCH),
     widget.Memory(format="󰓅 {MemUsed: .0f}{mm}"),
     separator(),
     widget.CPU(format=" {load_percent}%"),
