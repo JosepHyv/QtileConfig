@@ -61,7 +61,7 @@ keys = [
     Key([MOD, "shift"], "k", lazy.layout.grow_down(), desc="Grow window down"),
     Key([MOD, "shift"], "i", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([MOD, "shift"], "w", lazy.window.kill(), desc="Mata ventana actual"),
+    Key([MOD], "w", lazy.window.kill(), desc="Mata ventana actual"),
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key(
