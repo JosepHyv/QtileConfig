@@ -1,8 +1,6 @@
 import os
-from libqtile.config import Key
 from libqtile.lazy import lazy
-
-# Mi config
+from libqtile.config import Key
 
 
 MOD = "mod4"
@@ -29,37 +27,37 @@ keys = [
         desc="Full Screen in Window",
     ),
     Key(
-        [MOD, "control"],
+        [MOD, "shift"],
         "j",
         lazy.layout.shuffle_left(),
         desc="Move window to the left",
     ),
     Key(
-        [MOD, "control"],
+        [MOD, "shift"],
         "l",
         lazy.layout.shuffle_right(),
         desc="Move window to the right",
     ),
-    Key([MOD, "control"], "k", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([MOD, "control"], "i", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([MOD, "shift"], "k", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([MOD, "shift"], "i", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([MOD, Alt], "k", lazy.layout.flip_down()),
     Key([MOD, Alt], "i", lazy.layout.flip_up()),
     Key([MOD, Alt], "j", lazy.layout.flip_left()),
     Key([MOD, Alt], "l", lazy.layout.flip_right()),
     Key(
-        [MOD, "shift"],
+        [MOD, "control"],
         "l",
         lazy.layout.grow_right(),
         desc="Grow window to the right",
     ),
     Key(
-        [MOD, "shift"],
+        [MOD, "control"],
         "j",
         lazy.layout.grow_left(),
         desc="Grow window to the right",
     ),
-    Key([MOD, "shift"], "k", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([MOD, "shift"], "i", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([MOD, "control"], "k", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([MOD, "control"], "i", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key([MOD], "w", lazy.window.kill(), desc="Mata ventana actual"),
     Key([MOD], "Tab", lazy.next_layout(), desc="alterna las ventanas (maximizadas)"),
@@ -71,7 +69,6 @@ keys = [
     ),
     Key([MOD, "control", Alt], "l", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([Alt], "space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    # Control de volumne
     Key(
         [],
         "XF86AudioLowerVolume",
@@ -86,26 +83,17 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
     ## capturar pantalla
-    Key([], "Print", lazy.spawn("spectacle -s -b --fullscreen --copy-image")),
-    Key([MOD], "Print", lazy.spawn("spectacle -s -b --fullscreen")),
-    Key([Alt], "Print", lazy.spawn("spectacle -s -b -w --region --copy-image")),
-    Key([MOD, Alt], "Print", lazy.spawn("spectacle -s -b --region")),
-    Key(
-        ["control"], "Print", lazy.spawn("spectacle -s -b --activewindow --copy-image")
-    ),
+    Key([], "Print", lazy.spawn("flameshot gui -c")),
+    Key([MOD], "Print", lazy.spawn("flameshot screen -c")),
+    Key([Alt], "Print", lazy.spawn("flameshot screen")),
     Key([MOD, "control"], "Print", lazy.spawn("spectacle -s -b --activewindow")),
-    # Key([MOD, Alt], "l", lazy.spawn("light-locker-command --lock")),
-    ## ventanas flotantes
     Key([MOD, "shift"], "f", lazy.window.toggle_floating()),
     Key([MOD, "shift"], "s", lazy.layout.toggle_split()),
     Key([MOD], "p", lazy.widget["keyboardlayout"].next_keyboard()),
     Key([MOD, Alt], "p", lazy.spawn("arandr")),
-    ## My main apps workflow
-    # Configuracion de rofi
     Key([Alt], "space", lazy.spawn(os.path.expanduser("~/.config/rofi/rofi-run.sh"))),
     Key([Alt], "Tab", lazy.spawn("rofi -show window")),
     Key([MOD], "Return", lazy.spawn(TERMINAL), desc="abre instancia de kitty terminal"),
-    Key([MOD], "m", lazy.spawn("min --force-device-scale-factor=0.89")),
     Key([MOD], "e", lazy.spawn("thunar")),
     Key([MOD], "t", lazy.spawn("com.todoist.Todoist")),
     Key([MOD], "s", lazy.spawn("slack")),
